@@ -30,8 +30,16 @@ public:
 	// вивід даних в файл
 	void fprint(ofstream&);
 
-	
+	/* 
+	Методи сортування викликані friend бо:
+		- Вони є глобальними 
+		- Мають доступ до приватних полів 
+	*/
 
+	friend void sort_by_name(receipt*, int);
+	friend void sort_by_id(receipt*, int);
+	friend void sort_by_amount(receipt*, int);
+	
 	// констурктор і деструктор(~)
 	receipt();
 	~receipt();
