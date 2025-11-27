@@ -1,2 +1,10 @@
-poyizdka 1 65
-travel 4 100.2
+--- Sorted list ---
+
+Service name: poyizdka
+Receipt ID: 6
+Paid amount: 65
+
+Service name: travel
+Receipt ID: 4
+Paid amount: 100.2
+

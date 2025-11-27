@@ -1,2 +1,2 @@
-poyizdka 1 65
+poyizdka 6 65
 travel 4 100.2

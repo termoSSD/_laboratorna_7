@@ -1,6 +1,5 @@
 #include "hdr.h"
 
-
 string receipt::GetSN()
 {
 	return service_name;
@@ -42,14 +41,14 @@ void receipt::print()
 {
 	cout << "Service name: " << service_name << "\n";
 	cout << "Receipt ID: " << id_receipt << "\n";
-	cout << "Paid amount: " << paid_amount << "\n";
+	cout << "Paid amount: " << paid_amount << "\n\n";
 }
 
 void receipt::fprint(ofstream& onf)
 {
-	onf << service_name << " "
-		<< id_receipt << " "
-		<< paid_amount << "\n";
+	onf << "Service name: " << service_name << "\n";
+	onf << "Receipt ID: " << id_receipt << "\n";
+	onf << "Paid amount: " << paid_amount << "\n\n";
 }
 
 receipt::receipt()
@@ -63,17 +62,39 @@ receipt::~receipt()
 {
 }
 
+/*
+Зовнішній цикл відповідає за кількість проходів по масиву
+	Після кожного виконання циклу гарантується
+	що найбільший (або "найважчий") елемент з тих
+	що залишилися перейде в кінець масиву
+Внутрішній цикл проходить по елементах, порівнюючи пари сусідів
+	j - це індекс поточного елементу 
+	який порівнюється з наступним (j + 1)
+
+	(count - i - 1):
+		(- 1): тому що всередині ми звертаємось до arr[j + 1]. 
+		Якби ми йшли до самого кінця (count)
+		то j + 1 вийшов би за межі масиву
+		
+		(- i): оскільки після кожного проходу зовнішнього циклу (i)
+		найбільші елементи вже відсортувалися в кінець
+		немає сенсу їх знову перевіряти
+
+		інші функції по сортуванні по аналогії
+*/
+
 void sort_by_name(receipt* arr, int count)
 {
-	for (int i = 0; i < count - 1; i++) {
-		for (int j = 0; j < count - i - 1; j++) {
-
-			// Прямий доступ до private (service_name) дозволено, бо це friend функція
-			if (arr[j].service_name > arr[j + 1].service_name) {
-				// Ручний обмін
-				receipt temp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = temp;
+	for (int i = 0; i < count - 1; i++) 
+	{
+		for (int j = 0; j < count - i - 1; j++) 
+		{
+			// якщо лівий елемент більший за правий
+			if (arr[j].service_name > arr[j + 1].service_name) 
+			{
+				receipt temp = arr[j];	// зберігаємо лівий елемент у тимчасову змінну
+				arr[j] = arr[j + 1];	// на місце лівого ставимо правий (менший)
+				arr[j + 1] = temp;		// на місце правого ставимо збережений лівий 
 			}
 		}
 	}
@@ -81,11 +102,12 @@ void sort_by_name(receipt* arr, int count)
 
 void sort_by_id(receipt* arr, int count)
 {
-	for (int i = 0; i < count - 1; i++) {
-		for (int j = 0; j < count - i - 1; j++) {
-
-			// Прямий доступ до private (id_receipt)
-			if (arr[j].id_receipt > arr[j + 1].id_receipt) {
+	for (int i = 0; i < count - 1; i++) 
+	{
+		for (int j = 0; j < count - i - 1; j++)
+		{
+			if (arr[j].id_receipt > arr[j + 1].id_receipt) 
+			{
 				receipt temp = arr[j];
 				arr[j] = arr[j + 1];
 				arr[j + 1] = temp;
@@ -96,11 +118,12 @@ void sort_by_id(receipt* arr, int count)
 
 void sort_by_amount(receipt* arr, int count)
 {
-	for (int i = 0; i < count - 1; i++) {
-		for (int j = 0; j < count - i - 1; j++) {
-
-			// Прямий доступ до private (paid_amount)
-			if (arr[j].paid_amount > arr[j + 1].paid_amount) {
+	for (int i = 0; i < count - 1; i++) 
+	{
+		for (int j = 0; j < count - i - 1; j++) 
+		{
+			if (arr[j].paid_amount > arr[j + 1].paid_amount) 
+			{
 				receipt temp = arr[j];
 				arr[j] = arr[j + 1];
 				arr[j + 1] = temp;
