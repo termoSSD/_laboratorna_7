@@ -1,10 +1,42 @@
 --- Sorted list ---
 
-Service name: poyizdka
-Receipt ID: 6
-Paid amount: 65
+Service name: Electricity
+Receipt ID: 102
+Paid amount: 780
 
-Service name: travel
-Receipt ID: 4
-Paid amount: 100.2
+Service name: Garbage_Removal
+Receipt ID: 104
+Paid amount: 120
+
+Service name: Gas
+Receipt ID: 105
+Paid amount: 640.2
+
+Service name: Heating
+Receipt ID: 106
+Paid amount: 550
+
+Service name: Internet
+Receipt ID: 103
+Paid amount: 300
+
+Service name: Maintenance
+Receipt ID: 110
+Paid amount: 270
+
+Service name: Sewerage
+Receipt ID: 107
+Paid amount: 210.75
+
+Service name: TV_Service
+Receipt ID: 108
+Paid amount: 180
+
+Service name: Telephone
+Receipt ID: 109
+Paid amount: 95.5
+
+Service name: Water
+Receipt ID: 101
+Paid amount: 350.5
 

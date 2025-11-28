@@ -1,2 +1,10 @@
-poyizdka 6 65
-travel 4 100.2
+Water 101 350.50
+Electricity 102 780.00
+Internet 103 300.00
+Garbage_Removal 104 120.00
+Gas 105 640.20
+Heating 106 550.00
+Sewerage 107 210.75
+TV_Service 108 180.00
+Telephone 109 95.50
+Maintenance 110 270.00
